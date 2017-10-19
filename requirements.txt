@@ -1,0 +1,4 @@
+Django==1.11.6
+functools32==3.2.3.post2
+jsonschema==2.6.0
+pytz==2017.2
