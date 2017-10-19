@@ -1,0 +1,35 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#", 
+    "required": [
+        "source", 
+        "destination"
+    ], 
+    "type": "object", 
+    "properties": {
+        "chunks": {
+            "required": [
+                "size"
+            ], 
+            "type": "object", 
+            "properties": {
+                "number": {
+                    "type": "integer"
+                }, 
+                "size": {
+                    "type": "integer"
+                }
+            }
+        }, 
+        "source": {
+            "type": "string"
+        }, 
+        "destination": {
+            "type": "string"
+        }, 
+        "timeout": {
+            "minimum": 0, 
+            "type": "integer", 
+            "maximum": 32767
+        }
+    }
+}
