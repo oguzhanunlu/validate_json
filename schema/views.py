@@ -17,7 +17,6 @@ def index(request):
 
         return JsonResponse(schema)
 
-
     elif request.method == 'POST':
         unique_id = request.path.split('/')[-1]
         schema = json.loads(request.body)
@@ -25,7 +24,7 @@ def index(request):
         with open('static/' + unique_id + '.json', 'w') as f:
             json.dump(schema, f, indent=4)
 
-
-    response = JsonResponse({"action": "uploadSchema", "id": unique_id, "status": "success"})
+    response = JsonResponse({"action": "uploadSchema",
+                             "id": unique_id,
+                             "status": "success"})
     return response
-

@@ -16,14 +16,10 @@ def index(request):
     if request.method == 'POST':
         unique_id = request.path.split('/')[-1]
         doc = json.loads(request.body)
-        print json.dumps(doc, indent=4, sort_keys=True)
         doc = clean_doc(doc)
-        print json.dumps(doc, indent=4, sort_keys=True)
 
         with open('static/' + unique_id + '.json', 'r') as f:
             schema = json.load(f)
-
-        # print json.dumps(schema, indent=4, sort_keys=True)
 
         valid, err = is_valid(doc, schema)
 
@@ -38,6 +34,5 @@ def index(request):
                                      "status": "error",
                                      "message": err,
                                      })
-
 
     return response

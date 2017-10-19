@@ -3,6 +3,7 @@
 import jsonschema
 import sys
 
+
 def clean_doc(doc):
     """
     Clean given JSON document from keys where its value is None
