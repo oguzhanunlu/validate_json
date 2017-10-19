@@ -81,7 +81,7 @@ And expects it conforms to the following JSON Schema `config-schema.json`, after
 
 To check that it really fits the schema:
 
-1. Upload the JSON Schema: `curl http://localhost/schema/config-schema -X POST -d @config-schema.json`
+1. Upload the JSON Schema: `curl http://localhost:8000/schema/config-schema -X POST -d @config-schema.json`
 2. Response will be: `{"action": "uploadSchema", "id": "config-schema", "status": "success"}` and status code 201
-3. Upload the JSON document to validate it `curl http://localhost/validate/config-schema -X POST -d @config.json`
+3. Upload the JSON document to validate it `curl http://localhost:8000/validate/config-schema -X POST -d @config.json`
 4. Response will be: `{"action": "validateDocument", "id": "config-schema", "status": "success"}` and status code 200
