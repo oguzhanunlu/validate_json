@@ -10,14 +10,19 @@ import json
 
 @csrf_exempt
 def index(request):
-    # print json.dumps(json.loads(request.body), indent=4, sort_keys=True)
     if request.method == 'GET':
-        print "asdasd"
+        unique_id = request.path.split('/')[-1]
+        with open('static/' + unique_id + '.json', 'r') as f:
+            schema = json.load(f)
+
+        return JsonResponse(schema)
+
+
     elif request.method == 'POST':
         unique_id = request.path.split('/')[-1]
         schema = json.loads(request.body)
 
-        with open('static/main.json', 'w') as f:
+        with open('static/' + unique_id + '.json', 'w') as f:
             json.dump(schema, f, indent=4)
 
 
